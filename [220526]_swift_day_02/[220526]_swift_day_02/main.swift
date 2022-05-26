@@ -94,6 +94,7 @@ enum position {
 }
 
 //let player4 = position.topp
+// let player5 = position.sup
 
 //let player5 = position.top
 
