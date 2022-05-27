@@ -118,5 +118,14 @@ enum Planet: Int {
 }
 
 //let earth = Planet(rawValue: 2)
-print(Planet.earth.rawValue)
+print(Planet.earth)
 
+enum Position3:Double {
+    case top = 1
+    case jug
+    case mid
+    case adc
+    case sup
+}
+
+print(Position3.jug.rawValue)
