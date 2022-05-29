@@ -23,7 +23,7 @@ for album in albums{
 print("Players gonna ")
 
 for _ in 1...5 {
-    print("play")
+    print("Hello")
 }
 
 
@@ -64,22 +64,21 @@ repeat {
 
 // exiting loops
 
-var countDown = 10
-
-while countDown >= 0{
-    print(countDown)
-    if countDown == 4{
-        print("I'm bored. Just fire it already")
-        break
-    }
-    countDown -= 1
-}
-
-print("Blast off!")
+//var countDown = 10
+//
+//while countDown >= 0{
+//    print(countDown)
+//    if countDown == 4{
+//        print("I'm bored. Just fire it already")
+//        break
+//    }
+//    countDown -= 1
+//}
+//
+//print("Blast off!")
 
 
 // nested loops
-
 outerLoop: for i in 1...10 {
     for j in 1...10 {
         print("\(i) x \(j) = \(i*j)")
@@ -90,6 +89,13 @@ outerLoop: for i in 1...10 {
     }
 }
 
+// nested loops
+
+for i in 1..<10 {
+    for j in 1..<10 {
+        print("\(i) x \(j) = \(i*j)")
+    }
+}
 
 // exiting multiple loops
 
