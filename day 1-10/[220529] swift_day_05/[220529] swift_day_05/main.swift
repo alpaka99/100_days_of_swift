@@ -35,8 +35,8 @@ square(number: 8)
 
 // returning values + returning multiple values
 
-func square2(number:Int) -> (length: Int, size: Int) {
-    return (number, number*number)
+func square2(number:Int) -> (length: Int, size:Int) {
+    return (length: number, size: number*number)
 }
 
 let result = square2(number:5)
