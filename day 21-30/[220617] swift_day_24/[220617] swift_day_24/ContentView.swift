@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    let hogwarts = ["Griffindor", "Slytherin", "Hufflepuff", "Ravenclaw"]
+    
+    @State private var dormitory = Int.random(in: 0...3)
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("You have recevied invitation from hogwarts")
+            Text("Your dormitory is...")
+            Text("\(hogwarts[dormitory])!")
+            
+            Button {
+                
+            } label: {
+                Image(hogwarts[dormitory])
+                    .frame(width:10, height:10)
+            }
+                
+        }
     }
 }
 
