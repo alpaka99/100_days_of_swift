@@ -15,6 +15,7 @@
 		CE9D14CD28DC8899002E9F51 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D14CC28DC8899002E9F51 /* EditView.swift */; };
 		CE9D14CF28DC896B002E9F51 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D14CE28DC896B002E9F51 /* Result.swift */; };
 		CE9D14D128DC93D8002E9F51 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D14D028DC93D8002E9F51 /* ContentView-ViewModel.swift */; };
+		CE9D14D328E05E85002E9F51 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9D14D228E05E85002E9F51 /* FileManager-DocumentsDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		CE9D14CC28DC8899002E9F51 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		CE9D14CE28DC896B002E9F51 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		CE9D14D028DC93D8002E9F51 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		CE9D14D228E05E85002E9F51 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				CE9D14BC28DC8623002E9F51 /* _220922__swift_day_72App.swift */,
 				CE9D14BE28DC8623002E9F51 /* ContentView.swift */,
+				CE9D14D228E05E85002E9F51 /* FileManager-DocumentsDirectory.swift */,
 				CE9D14CE28DC896B002E9F51 /* Result.swift */,
 				CE9D14CC28DC8899002E9F51 /* EditView.swift */,
 				CE9D14D028DC93D8002E9F51 /* ContentView-ViewModel.swift */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9D14BF28DC8623002E9F51 /* ContentView.swift in Sources */,
+				CE9D14D328E05E85002E9F51 /* FileManager-DocumentsDirectory.swift in Sources */,
 				CE9D14D128DC93D8002E9F51 /* ContentView-ViewModel.swift in Sources */,
 				CE9D14CF28DC896B002E9F51 /* Result.swift in Sources */,
 				CE9D14CB28DC867F002E9F51 /* Location.swift in Sources */,
@@ -286,6 +290,7 @@
 				DEVELOPMENT_TEAM = CZH2CMCGCZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Need to access personal data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +320,7 @@
 				DEVELOPMENT_TEAM = CZH2CMCGCZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Need to access personal data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
