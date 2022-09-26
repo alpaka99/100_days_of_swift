@@ -58,6 +58,9 @@ struct ContentView: View {
                     }
                 }
             }
+            .onAppear{
+                viewModel.initialLocation()
+            }
             .sheet(item: $viewModel.selectedPlace) { place in
                 EditView(location: place) { newLocation in
                     viewModel.updateLocation(location: newLocation)

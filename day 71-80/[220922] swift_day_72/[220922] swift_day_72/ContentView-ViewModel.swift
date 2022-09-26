@@ -11,11 +11,15 @@ import LocalAuthentication
 
 extension ContentView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
+//        @Published var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.locationManager.location?.latitude ?? 50, longitude: self.locationManager.location?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
+        
+        @Published var mapRegion: MKCoordinateRegion
         @Published private (set) var locations: [Location]
         @Published var selectedPlace: Location?
         
         @Published var isUnlocked = false
+        
+        var locationFetcher: LocationFetcher
         
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPlaces")
         
@@ -26,7 +30,22 @@ extension ContentView {
             } catch {
                 locations = []
             }
+            
+            mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
+            locationFetcher = LocationFetcher()
         }
+        
+        func initialLocation() {
+            locationFetcher.start()
+            if let initLocation = locationFetcher.lastKnownLocation {
+                mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: initLocation.latitude,longitude:  initLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
+                print("Your location is \(initLocation.latitude) \(initLocation.longitude)")
+            } else {
+                print("No location")
+            }
+        }
+        
+    
         
         func save() {
             do {
