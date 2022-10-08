@@ -7,10 +7,11 @@
 
 import SwiftUI
 import UserNotifications
+import SamplePackage
 
-struct ContentView: View {
-    @State private var backgroundColor = Color.red
-    var body: some View {
+//struct ContentView: View {
+//    @State private var backgroundColor = Color.red
+//    var body: some View {
 //        1. Creating context menus
 //        Text("Change Color")
 //            .padding()
@@ -54,33 +55,50 @@ struct ContentView: View {
 //        }
         
 //        3. Scheduling local notifications
-        VStack {
-            Button("Request Permission") {
-                // first
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
-                        print("All set!")
-                    } else if let error = error {
-                        print(error.localizedDescription)
-                    }
-                }
-            }
-            
-            Button("Schedule Notification") {
-                // second
-                let content = UNMutableNotificationContent()
-                content.title = "Notification from @dev.tenev"
-                content.subtitle = "Hello there 🙂"
-                content.sound = UNNotificationSound.default
-                
-                
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                
-                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                
-                UNUserNotificationCenter.current().add(request)
-            }
-        }
+//        VStack {
+//            Button("Request Permission") {
+//                // first
+//                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+//                    if success {
+//                        print("All set!")
+//                    } else if let error = error {
+//                        print(error.localizedDescription)
+//                    }
+//                }
+//            }
+//
+//            Button("Schedule Notification") {
+//                // second
+//                let content = UNMutableNotificationContent()
+//                content.title = "Notification from @dev.tenev"
+//                content.subtitle = "Hello there 🙂"
+//                content.sound = UNNotificationSound.default
+//
+//
+//                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//
+//                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+//
+//                UNUserNotificationCenter.current().add(request)
+//            }
+//        }
+//    }
+//}
+
+struct ContentView: View {
+    let possibleNumbers = Array(1...60)
+    var results: String {
+        // more code to come
+        let selected = possibleNumbers.random(7).sorted()
+        let strings = selected.map(String.init)
+        
+        return strings.joined(separator: ", ")
+    }
+    
+    
+    
+    var body: some View {
+        Text(results)
     }
 }
 
