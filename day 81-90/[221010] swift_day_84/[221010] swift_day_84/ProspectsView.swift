@@ -19,17 +19,37 @@ struct ProspectsView: View {
     @EnvironmentObject var prospects: Prospects
     
     @State private var isShowingScanner = false
+    @State private var isShowingConfirmationDialog = false
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(filteredProspects) { prospect in
+                    HStack {
+                        if filter == .none {
+                            if prospect.isContacted {
+                                Image(systemName: "person.crop.circle.fill.badge.checkmark")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width:50, height: 50)
+                                    .foregroundColor(.blue)
+                            } else {
+                                Image(systemName: "person.crop.circle.badge.xmark")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(.orange)
+                            }
+                        }
                         VStack(alignment: .leading) {
                             Text(prospect.name)
                                 .font(.headline)
                             Text(prospect.emailAddress)
                                 .foregroundColor(.secondary)
+                            Text("\(prospect.created)")
+                                .font(.body)
                         }
+                    }
                         .swipeActions {
                             if prospect.isContacted {
                                 Button {
@@ -58,15 +78,35 @@ struct ProspectsView: View {
             }
                 .navigationTitle(title)
                 .toolbar {
-                    Button {
-                        isShowingScanner = true
-                    } label: {
-                        Label("Scan", systemImage: "qrcode.viewfinder")
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button {
+                            isShowingConfirmationDialog = true
+                        } label: {
+                            Label("Sort", systemImage: "pencil")
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            isShowingScanner = true
+                        } label: {
+                            Label("Scan", systemImage: "qrcode.viewfinder")
+                        }
                     }
                 }
                 .sheet(isPresented: $isShowingScanner) {
                     CodeScannerView(codeTypes: [.qr],simulatedData: "PaulHudson\npaul@hackingwiththeswift.com", completion: handleScan)
                 }
+                .confirmationDialog("How to Sort prospects??",isPresented: $isShowingConfirmationDialog){
+                    Button("By name") {
+                        prospects.sortByName()
+                    }
+                    
+                    Button("By most recent") {
+                        prospects.sortByMostRecent()
+                    }
+                }
+                
         }
     }
     

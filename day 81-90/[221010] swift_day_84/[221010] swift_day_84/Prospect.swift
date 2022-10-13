@@ -13,6 +13,7 @@ class Prospect: Identifiable, Codable {
     var id = UUID()
     var name = "Anonymous"
     var emailAddress = ""
+    var created = Date.now
     fileprivate(set) var isContacted = false
 }
 
@@ -49,5 +50,19 @@ class Prospect: Identifiable, Codable {
         objectWillChange.send()
         prospect.isContacted.toggle()
         save()
+    }
+    
+    func sortByName() {
+        people.sort {
+            $0.name < $1.name
+        }
+        print(self.people)
+    }
+    
+    func sortByMostRecent() {
+        people.sort {
+            $0.created > $1.created
+        }
+        print(self.people)
     }
 }
