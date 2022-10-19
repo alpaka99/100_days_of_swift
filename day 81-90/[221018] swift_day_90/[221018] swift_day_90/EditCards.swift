@@ -13,7 +13,7 @@ struct EditCards: View {
     @State private var cards = [Card]()
     
     @State private var newPrompt = ""
-    @State private var newAnswer = ""
+    @State private var newAnswer = "New TextEditor: "
     var body: some View {
         NavigationView {
             
@@ -22,8 +22,12 @@ struct EditCards: View {
                     TextField("New prompt: ", text: $newPrompt)
                         .padding()
                     
-                    TextField("New Answer: ", text: $newAnswer)
+                    TextEditor(text: $newAnswer)
+                        .frame(height: 200)
                         .padding()
+                        .onTapGesture {
+                            newAnswer = ""
+                        }
                     
                     Button("Add card", action: addCard)
                 }
